@@ -16,7 +16,7 @@ public class AdIni : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLo
 
     void Awake()
     {
-    InitializeAds();
+        InitializeAds();
     }
 
     public void InitializeAds()
@@ -25,8 +25,8 @@ public class AdIni : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLo
     _gameId = _iOSGameId;
     _adUnitId = _iOSAdUnitId;
 #elif UNITY_ANDROID
-    _gameId = _androidGameId;
-    _adUnitId = _androidAdUnitId;
+        _gameId = _androidGameId;
+        _adUnitId = _androidAdUnitId;
 #elif UNITY_EDITOR
     _gameId = _androidGameId; //Only for testing the functionality in the Editor
     _adUnitId = _androidAdUnitId;
@@ -37,12 +37,12 @@ public class AdIni : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLo
             Advertisement.Initialize(_gameId, _testMode, this);
         }
     }
-    
+
     public void LoadAd()
     {
-    // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-    Debug.Log("Loading Ad: " + _adUnitId);
-    Advertisement.Load(_adUnitId, this);
+        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
+        Debug.Log("Loading Ad: " + _adUnitId);
+        Advertisement.Load(_adUnitId, this);
     }
 
     public void OnInitializationComplete()
@@ -50,7 +50,7 @@ public class AdIni : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLo
         Debug.Log("Unity Ads initialization complete.");
         LoadAd();
     }
-    
+
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
         Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
@@ -60,17 +60,17 @@ public class AdIni : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLo
     {
         Debug.Log("Ad Loaded: " + placementId);
 
-    if (placementId.Equals(_adUnitId))
-    {
-      // Configure the button to call the ShowAd() method when clicked:
-        
-      // Enable the button for users to click:
-        
-    }
+        if (placementId.Equals(_adUnitId))
+        {
+            // Configure the button to call the ShowAd() method when clicked:
+
+            // Enable the button for users to click:
+
+        }
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
-    
+
     }
 }
